@@ -29,7 +29,6 @@
     const articleSelector = clickedElement.getAttribute('href');
     console.log(articleSelector);
 
-
     /*.[DONE] find the correct article using the selector (value of 'href' attribute) */
     const targetArticle = document.querySelector(articleSelector);
     console.log(targetArticle);
@@ -37,7 +36,6 @@
     /* [DONE] add class 'active' to the correct article */
 
     targetArticle.classList.add('active');
-
   };
 
   const optArticleSelector = '.post',
@@ -82,12 +80,9 @@
     for(let link of links){
       link.addEventListener('click', titleClickHandler);
     }
-
   }
 
   generateTitleLinks();
-
-
 
   function generateTags(){
 
@@ -130,4 +125,59 @@
   }
 
   generateTags();
+
+  function tagClickHandler(event){
+
+    /* prevent default action for this event */
+    event.preventDefault();
+
+    /* make new constant named "clickedElement" and give it the value of "this" */
+    const clickedElement = this;
+
+    /* make a new constant "href" and read the attribute "href" of the clicked element */
+    const href = clickedElement.getAttribute('href');
+
+    /* make a new constant "tag" and extract tag from the "href" constant */
+    const tag = href.replace('#tag-', '');
+    console.log(tag);
+
+    /* find all tag links with class active */
+    const allTagsLinks = document.querySelectorAll('a.active[href^="#tag-"]');
+
+    /* START LOOP: for each active tag link */
+    for(let tagsLinks of allTagsLinks){
+
+      /* remove class active */
+      tagsLinks.classList.remove('active');
+
+    /* END LOOP: for each active tag link */
+    }
+    /* find all tag links with "href" attribute equal to the "href" constant */
+    const allTagsLinksH = document.querySelectorAll('a[href="' + href + '"]');
+
+    /* START LOOP: for each found tag link */
+    for(let tagsLinksH of allTagsLinksH){
+
+      /* add class active */
+      tagsLinksH.classList.add('active');
+
+    /* END LOOP: for each found tag link */
+    }
+
+    /* execute function "generateTitleLinks" with article selector as argument */
+    generateTitleLinks('[data-tags~="' + tag + '"]');
+  }
+
+  function addClickListenersToTags(){
+    /* find all links to tags */
+
+    /* START LOOP: for each link */
+
+    /* add tagClickHandler as event listener for that link */
+
+    /* END LOOP: for each link */
+  }
+
+  addClickListenersToTags();
+
 }
