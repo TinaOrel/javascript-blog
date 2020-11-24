@@ -208,7 +208,7 @@
         console.log(authorLink);
 
         /* generate HTML of the link */
-        const linkHTML = '<li><a href="#tag-' + authorLink + '"><span>' + authorLink + '</span></a></li>';
+        const linkHTML = '<p><a href="#tag-' + authorLink + '"><span>' + authorLink + '</span></a></p>';
         console.log(linkHTML);
 
        /* add generated code to html variable */
@@ -222,5 +222,21 @@
   }
 
   generateAuthors();
+
+  function addClickListenersToAuthors(){
+
+    /* find all links to authors */
+    const allAuthorLinks = document.querySelectorAll('a[href^="#tag-"]');
+
+    /* START LOOP: for each author */
+    for(let authorLink of allAuthorLinks){
+
+      /* add authorClickHandler as event listener for that author */
+      authorLink.addEventListener('click', authorClickHandler);
+
+    /* END LOOP: for each link */
+    }
+  }
+  addClickListenersToAuthors();
 
 }
