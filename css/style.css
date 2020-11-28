@@ -40,13 +40,13 @@ body {
 }
 
 .sidebar {
-  -ms-flex: 1 0 0px;
-      flex: 1 0 0;
+  -ms-flex: 1 1 1;
+      flex: 1 1 1;
 }
 
 .posts {
-  -ms-flex: 2 0 0px;
-      flex: 2 0 0;
+  -ms-flex: 1 1 1;
+      flex: 1 1 1;
 }
 
 .sidebar, .posts {
