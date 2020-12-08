@@ -11,12 +11,12 @@
 			<div class="container">
 				<h1 class="logo">my blog</h1>
 				<main class="wrapper">
-					<aside class="sidebar">
+					<aside class="sidebar box">
 						<h2 class="section-title">All posts</h2>
 						<ul class="list titles">
 						</ul>
       		</aside>
-      		<section class="posts">
+      		<section class="posts box">
         				<article class="post active" id="article-1" data-tags="cat cactus scissors" data-author="Marion Berry" >
           				<h3 class="post-title">Article 1</h3>
           				<p class="post-author"></p>
@@ -158,7 +158,7 @@
           				</div>
         				</article>
       			</section>
-      			<aside class="sidebar">
+      			<aside class="sidebar box">
         				<h2 class="section-title">Tags</h2>
         				<ul class="list tags">
         				</ul>
@@ -169,6 +169,26 @@
     			</main>
 			</div>
 		</div>
+    <script id="template-article-link" type="text/x-handlebars-template">
+        <li><a href="#{{ id }}"><span>{{ title }}</span></a></li>
+    </script>
+    <script id="template-tag-link" type="text/x-handlebars-template">
+        <li><a href="#tag-{{ tag }}"><span>{{ tag }}</span></a></li>
+    </script>
+    <script id="template-autor-link" type="text/x-handlebars-template">
+        <li><a href="#author-{{ author }}"><span>{{ author }}</span></a></li>
+    </script>
+    <script id="template-tag-cloud-link" type="text/x-handlebars-template">
+      {{#each tags}}
+      <li><a class = "{{ className }}" href="#tag-{{ tag }}"><span>{{ tag }}</span></a></li>
+      {{/each}}
+    </script>
+    <script id="template-authors-column-link" type="text/x-handlebars-template">
+      {{#each authors}}
+      <li><a href="#author-{{ author }}"><span>{{author}} ( {{ count }} ) </span></a></li>
+      {{/each}}
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
 		<script src="js/script.js"></script>
 	</body>
 </html>
